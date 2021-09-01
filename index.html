@@ -6,10 +6,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book</title>
+    <!-- bootstrap css link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 
 <body>
 
+    <section class="container bg-light py-2 ">
+        <h1 class="text-center text-success fs-1 fw-1 mt-4 ">Book Fair</h1>
+        <!-- search field here -->
+        <div class="input-group mb-3  d-flex justify-content-center">
+            <input type="text" class="w-25 border border-success " placeholder="Search Your Favorite cock"
+                id="search-field">
+            <!-- button search here -->
+            <button class="btn btn-outline-success border border-success" type="button"
+                id="search-button">Search</button>
+        </div>
+    </section>
+    <!-- book container section -->
+    <section class="container my-4  p-2">
+        <div id="book-container" class="row gap-2">
+            <div class="col">
+                <div class="rounded">
+                    <img style="width: 150px; height: 200px; border-radius: 2px;"
+                        src="https://covers.openlibrary.org/b/id/554106-M.jpg" alt="">
+                </div>
+                <div class="my-3">
+                    <h2 class="text-secondary fw-1">title</h2>
+                    <p class="text-secondary">first_publish_year</p>
+                    <p class="text-secondary">author</p>
+                    <p class="text-secondary">publisher</p>
+                    <p class="text-secondary">first publish year</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- bootstrap script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <!-- own script -->
     <script src="js/script.js"></script>
 </body>
 
