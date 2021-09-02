@@ -14,7 +14,7 @@ searchButton.addEventListener('click', () => {
     const url = `https://openlibrary.org/search.json?q=${searchText}`;
 
     // error handle
-    if (searchText < 2) {
+    if (searchText.length < 2) {
         error.innerHTML = `
             <h1 class="text-center">No Found Result</h1>
             `;
@@ -30,7 +30,7 @@ searchButton.addEventListener('click', () => {
 
 // display book list
 const displayBook = booksData => {
-    const books = booksData.slice(0, 10);
+    const books = booksData.slice(0, 25);
 
     books.forEach(book => {
         const div = document.createElement('div');
@@ -42,17 +42,17 @@ const displayBook = booksData => {
                         src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" alt="">
                 </div>
                 <div class="my-4 ms-4">
-                    <h4 class="text-secondary fw-1">${book.title ? book.title : ''}</h4>
-                    <p class="text-secondary">${book?.author_name?.[0] ? book?.author_name?.[0] : ''}</p>
-                    <p class="text-secondary">${book?.publisher?.[0] ? book?.publisher?.[0] : ''}</p>
-                    <p class="text-secondary">${book.first_publish_year ? book.first_publish_year : ''}</p>
+                    <h4 class="text-secondary fw-1">Name: ${book.title ? book.title : ''}</h4>
+                    <p class="text-secondary">Author: ${book?.author_name?.[0] ? book?.author_name?.[0] : ''}</p>
+                    <p class="text-secondary">Publisher: ${book?.publisher?.[0] ? book?.publisher?.[0] : ''}</p>
+                    <p class="text-secondary">First publish: ${book.first_publish_year ? book.first_publish_year : ''}</p>
                 </div>
             </div>
         `;
         bookContainer.appendChild(div);
     });
 
-    resultShow(books);
+    resultShow(booksData);
 }
 
 // result show by number
