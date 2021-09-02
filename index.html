@@ -11,7 +11,9 @@
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <!-- own stylesheet -->
     <style>
-
+        #spinner {
+            display: none;
+        }
     </style>
 </head>
 
@@ -30,6 +32,12 @@
     </header>
     <!-- book container section -->
     <section class="container my-4  p-2">
+        <!-- spinner -->
+        <div class="d-flex justify-content-center">
+            <div id="spinner" class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
         <!-- result container -->
         <div id="result-container">
 

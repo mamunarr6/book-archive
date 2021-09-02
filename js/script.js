@@ -3,6 +3,7 @@ const searchButton = document.getElementById('search-button');
 const bookContainer = document.getElementById('book-container');
 const resultContainer = document.getElementById('result-container');
 const error = document.getElementById('error');
+const spinner = document.getElementById('spinner');
 
 // event handler 
 searchButton.addEventListener('click', () => {
@@ -16,10 +17,12 @@ searchButton.addEventListener('click', () => {
     // error handle
     if (searchText.length < 2) {
         error.innerHTML = `
-            <h1 class="text-center">No Found Result</h1>
+            <h1 class="text-center text-danger">No Result Found</h1>
             `;
     }
     else {
+        //add spinner
+        spinner.style.display = 'block';
         fetch(url)
             .then(res => res.json())
             .then(data => displayBook(data.docs));
@@ -30,6 +33,8 @@ searchButton.addEventListener('click', () => {
 
 // display book list
 const displayBook = booksData => {
+    //remove spinner
+    spinner.style.display = 'none';
     const books = booksData.slice(0, 25);
 
     books.forEach(book => {
@@ -60,7 +65,7 @@ const resultShow = data => {
     if (data.length == 0) {
         // error
         error.innerHTML = `
-            <h1 class="text-center">No Found Result</h1>
+            <h1 class="text-center text-danger">No Result Found</h1>
             `;
     } else {
         // result
