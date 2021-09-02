@@ -4,6 +4,7 @@ const bookContainer = document.getElementById('book-container');
 const resultContainer = document.getElementById('result-container');
 const error = document.getElementById('error');
 
+// event handler 
 searchButton.addEventListener('click', () => {
     const searchText = searchField.value;
     bookContainer.textContent = '';
@@ -15,7 +16,7 @@ searchButton.addEventListener('click', () => {
     // error handle
     if (searchText < 2) {
         error.innerHTML = `
-            <h1 class="text-center">Not Found Result</h1>
+            <h1 class="text-center">No Found Result</h1>
             `;
     }
     else {
@@ -57,7 +58,7 @@ const displayBook = books => {
 const resultShow = data => {
     if (data.length == 0) {
         error.innerHTML = `
-            <h1 class="text-center">Not Found Result</h1>
+            <h1 class="text-center">No Found Result</h1>
             `;
     } else {
         const resultNumber = document.createElement('div');
