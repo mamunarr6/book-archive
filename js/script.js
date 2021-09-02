@@ -11,7 +11,7 @@ searchButton.addEventListener('click', () => {
     searchField.value = '';
     resultContainer.textContent = '';
     error.textContent = '';
-    const url = `http://openlibrary.org/search.json?q=${searchText}`;
+    const url = `https://openlibrary.org/search.json?q=${searchText}`;
 
     // error handle
     if (searchText < 2) {
@@ -29,7 +29,9 @@ searchButton.addEventListener('click', () => {
 });
 
 // display book list
-const displayBook = books => {
+const displayBook = booksData => {
+    const books = booksData.slice(0, 10);
+
     books.forEach(book => {
         const div = document.createElement('div');
         div.classList.add('col-5', 'bg-light', 'ms-5', 'me-5', 'my-3');
@@ -51,16 +53,17 @@ const displayBook = books => {
     });
 
     resultShow(books);
-    // return books;
 }
 
 // result show by number
 const resultShow = data => {
     if (data.length == 0) {
+        // error
         error.innerHTML = `
             <h1 class="text-center">No Found Result</h1>
             `;
     } else {
+        // result
         const resultNumber = document.createElement('div');
         resultNumber.innerHTML = `
     <h1 class="text-center">Result : ${data.length}</h1>
